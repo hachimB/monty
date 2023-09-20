@@ -8,15 +8,15 @@
 
 void swap(stack_t **stack, unsigned int line_number)
 {
-stack_t *h = *stack, *prv;
+stack_t *ptr;
+int data;
 if (stackLen(*stack) <= 2)
 {
 fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 exit(EXIT_FAILURE);
 }
-while (h->next)
-h = h->next;
-prv = h->prev;
-h->prev = h;
-h = prv;
+ptr = (*stack)->next;
+data = (*stack)->n;
+(*stack)->n = ptr->n;
+ptr->n = data;
 }
