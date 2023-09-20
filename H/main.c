@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 FILE *_byteCode_;
 char *_byteCodeContent_ = NULL, **arr;
 instruction_t _ins[] ={{"push", push}, {"pop", pop}, {"swap", swap},
-		       {"pint", pint}, {"pall", pall}, {"nop", nop}
+		       {"pint", pint}, {"pall", pall}, {"nop", nop},
 		       {"add", add}};
 (void)_ins;
 if (argc != 2)
