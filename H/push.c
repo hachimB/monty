@@ -1,20 +1,43 @@
 #include "monty.h"
 /**
  * push - push data in the stack.
- * @data : data to push.
+ * @stack : stack.
+ * @line_number: line number
+ * Return: nothing.
  */
-void push(int data)
+void push(stack_t **stack, unsigned int line_number)
 {
-stack_t *ptr = malloc(sizeof(stack_t));
+int data;
+stack_t *ptr;
+if (line_number == 0)
+{
+fprintf(stderr, "Error: Invalid line number\n");
+exit(EXIT_FAILURE);
+}
+if (stack == NULL)
+{
+fprintf(stderr, "L%u: Error: stack not found\n", line_number);
+exit(EXIT_FAILURE);
+}
+if (*stack == NULL)
+{
+fprintf(stderr, "L%u: usage: push integer\n", line_number);
+exit(EXIT_FAILURE);
+}
+data = atoi((*stack)->opcode);
+ptr = malloc(sizeof(stack_t));
 if (ptr == NULL)
-exit(1);
+{
+fprintf(stderr, "L%u: Error: malloc failed\n", line_number);
+exit(EXIT_FAILURE);
+}
 ptr->prev = NULL;
 ptr->n = data;
 ptr->next = NULL;
-if (top != NULL)
+if (*stack != NULL)
 {
-ptr->next= top;
-top->prev = ptr;
+(*stack)->prev = ptr;
+ptr->next = *stack;
 }
-top = ptr;
+*stack = ptr;
 }
