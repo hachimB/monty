@@ -7,33 +7,22 @@
  * Return: always 0
  */
 
-char **arr;
-
 int main(int argc, char **argv)
 {
 	FILE *_byteCode_;
-	char *_byteCodeContent_ = NULL, **args;
-	stack_t *__Stack__;
-	instruction_t _instr[7] = {
+	char *_byteCodeContent_ = NULL, **arr;
+	instruction_t _ins[] = {
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add},
-		{"push", push},
-		{"pint", pint},
-		{"pall", pall},
-		{"nop", nop}
 	};
 
-	int _;
-	unsigned int line = 1;
+	(void)_ins;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
-	__Stack__ = NULL;
 
 	_byteCode_ = fopen(argv[1], "rb");
 
@@ -57,16 +46,7 @@ int main(int argc, char **argv)
 
 	while (*arr)
 	{
-		args = tokenize(*arr, " \t");
-
-		for (_ = 0; _ < 7; _++)
-		{
-			if (strcmp(args[0], _instr[_].opcode) == 0)
-				_instr[_].f(&__Stack__, 1);
-				
-		}
-
-		line += 0;
+		printf("%s\n", *arr);
 		arr++;
 	}
 

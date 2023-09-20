@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "monty.h": "c"
+        "monty.h": "c",
+        "stdlib.h": "c"
     }
 }
