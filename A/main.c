@@ -9,44 +9,50 @@
 
 int main(int argc, char **argv)
 {
-    FILE *_byteCode_ = fopen(argv[1], "rb");
-    char *_byteCodeContent_ = NULL, **arr;
-    instruction_t _ins[] = {
-        {"pop", pop},
-        {"swap", swap},
-    };
+	FILE *_byteCode_;
+	char *_byteCodeContent_ = NULL, **arr;
+	instruction_t _ins[] = {
+		{"pop", pop},
+		{"swap", swap},
+	};
 
-    (void) _ins;
-    (void) argc;
+	(void)_ins;
 
-    if (!_byteCode_)
-    {
-        fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-        exit(EXIT_FAILURE);
-    }
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 
-    _byteCodeContent_ = malloc(1024);
-    
-    if (!_byteCodeContent_)
-    {
-        fprintf(stderr, "Error: malloc failed");
-        exit(EXIT_FAILURE);
-    }
+	_byteCode_ = fopen(argv[1], "rb");
 
-    fread(_byteCodeContent_, 1, 1024, _byteCode_); 
+	if (!_byteCode_)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 
-    arr = tokenize(_byteCodeContent_, "\n");
+	_byteCodeContent_ = malloc(1024);
 
-    while (*arr)
-    {
-        printf("%s\n", *arr);
-        arr++;
-    }
+	if (!_byteCodeContent_)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 
+	fread(_byteCodeContent_, 1, 1024, _byteCode_);
 
-    free(_byteCodeContent_);
+	arr = tokenize(_byteCodeContent_, "\n");
 
-    fclose(_byteCode_);
-    
-    return (0);
+	while (*arr)
+	{
+		printf("%s\n", *arr);
+		arr++;
+	}
+
+	free(_byteCodeContent_);
+
+	fclose(_byteCode_);
+
+	return (0);
 }

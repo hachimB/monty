@@ -30,11 +30,14 @@ char **tokenize(char *_code_, char *__sep__)
     arr = malloc(sizeof(char *) * (len + 1));
     
     if (!arr)
+    {
+        free(code);
         return (NULL);
+    }
 
     while (token)
     {
-        arr[_] = token;
+        arr[_] = _strdup_(token);
         token = strtok(NULL, __sep__);
         _++;
     }
