@@ -11,7 +11,12 @@ int main(int argc, char **argv)
 {
     FILE *_byteCode_ = fopen(argv[1], "rb");
     char *_byteCodeContent_ = NULL, **arr;
+    instruction_t _ins[] = {
+        {"pop", pop},
+        {"swap", swap},
+    };
 
+    (void) _ins;
     (void) argc;
 
     if (!_byteCode_)
@@ -37,6 +42,7 @@ int main(int argc, char **argv)
         printf("%s\n", *arr);
         arr++;
     }
+
 
     free(_byteCodeContent_);
 

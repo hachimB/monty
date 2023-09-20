@@ -8,11 +8,11 @@
 
 void pop(stack_t **stack, unsigned int line_number)
 {
-    stack_t **h = stack, *prv;
+    stack_t **h = stack;
 
     if (!(*stack))
     {
-        fprintf(stderr, "L%s: can't pop an empty stack\n", line_number);
+        fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
         exit(EXIT_FAILURE);
     }
 

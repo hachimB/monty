@@ -44,6 +44,6 @@ char *_strdup_(char *str);
 char **tokenize(char *_code_, char *__sep__);
 int stackLen(stack_t *s);
 void swap(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number);
 
 #endif
