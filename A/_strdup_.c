@@ -7,20 +7,9 @@
  */
 char *_strdup_(char *str)
 {
-	size_t i = 0;
-	size_t j = 0;
-	char *dup;
-
-	if (!str)
-		return (NULL);
-	while (str[i] != '\0')
-		i++;
-	dup = malloc(i + 1);
-	if (dup == NULL)
-		return (NULL);
-
-	for (j = 0; j < (i + 1); j++)
-		dup[j] = str[j];
-
-	return (dup);
+char *s = malloc(strlen(str) + 1);
+if (!s)
+return (NULL);
+strcpy(s, str);
+return (s);
 }

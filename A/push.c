@@ -7,31 +7,29 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-int data;
-stack_t *ptr;
-char **args;
-if (line_number == 0)
-{
-fprintf(stderr, "Error: Invalid line number\n");
-exit(EXIT_FAILURE);
-}
-args = tokenize(*arr, " \t");
-if (arrLen(args) != 2 || !isNum(args[1]))
-{
-fprintf(stderr, "L%u: usage: push integer\n", line_number);
-exit(EXIT_FAILURE);
-}
-data = atoi(args[1]);
-ptr = malloc(sizeof(stack_t));
-if (ptr == NULL)
-{
-fprintf(stderr, "L%u: Error: malloc failed\n", line_number);
-exit(EXIT_FAILURE);
-}
-ptr->prev = NULL;
-ptr->n = data;
-ptr->next = (*stack);
-if ((*stack) != NULL)
-(*stack)->prev = ptr;
-(*stack) = ptr;
+    int data;
+    stack_t *ptr;
+    char **args;
+    if (line_number == 0)
+    {
+        fprintf(stderr, "Error: Invalid line number\n");
+        exit(EXIT_FAILURE);
+    }
+    args = tokenize(*arr, " ");
+    printf("(%s)\n", args[1]);
+
+
+    data = 2;
+    ptr = malloc(sizeof(stack_t));
+    if (ptr == NULL)
+    {
+        fprintf(stderr, "L%u: Error: malloc failed\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    ptr->prev = NULL;
+    ptr->n = data;
+    ptr->next = (*stack);
+    if ((*stack) != NULL)
+        (*stack)->prev = ptr;
+    (*stack) = ptr;
 }
