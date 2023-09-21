@@ -11,7 +11,7 @@ int stackLen(stack_t *s)
 int count = 0;
 stack_t *ptr;
 ptr = s;
-while (s)
+while (ptr)
 {
 ptr = ptr->next;
 count++;
