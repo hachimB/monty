@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * add - push data in the stack.
+ * nop - doesn't do anything.
  * @stack : stack.
  * @line_number: line number
  * Return: nothing.

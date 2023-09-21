@@ -9,22 +9,19 @@ void push(stack_t **stack, unsigned int line_number)
 {
 int data;
 stack_t *ptr;
+char **args;
 if (line_number == 0)
 {
 fprintf(stderr, "Error: Invalid line number\n");
 exit(EXIT_FAILURE);
 }
-if (stack == NULL)
-{
-fprintf(stderr, "L%u: Error: stack not found\n", line_number);
-exit(EXIT_FAILURE);
-}
-if (*stack == NULL)
+args = tokenize(*arr, " \t");
+if (arrLen(args) != 2 || !isNum(args[1]))
 {
 fprintf(stderr, "L%u: usage: push integer\n", line_number);
 exit(EXIT_FAILURE);
 }
-data = atoi((*stack)->opcode);
+data = atoi(args[1]);
 ptr = malloc(sizeof(stack_t));
 if (ptr == NULL)
 {
@@ -33,11 +30,8 @@ exit(EXIT_FAILURE);
 }
 ptr->prev = NULL;
 ptr->n = data;
-ptr->next = NULL;
-if (*stack != NULL)
-{
+ptr->next = (*stack);
+if ((*stack) != NULL)
 (*stack)->prev = ptr;
-ptr->next = *stack;
-}
-*stack = ptr;
+(*stack) = ptr;
 }

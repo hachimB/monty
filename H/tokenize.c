@@ -2,8 +2,8 @@
 #include <string.h>
 /**
  * tokenize - tokenize code
- * @code: the code
- * @sep: separator
+ * @_code_: the code
+ * @__sep__: separator
  * Return: Array
 */
 
