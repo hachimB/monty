@@ -10,13 +10,21 @@ char **args;
 int main(int argc, char **argv)
 {
     FILE *_byteCode_;
-    char *_codeLine_ = NULL;
     stack_t *__Stack__;
-    instruction_t _instr[7] = {{"pop", pop}, {"swap", swap}, {"add", add}, {"push", push}, {"pint", pint}, {"pall", pall}, {"nop", nop}};
-    int _;
+    instruction_t _instr[7] = {
+        {"pop", pop}, 
+        {"swap", swap}, 
+        {"add", add}, 
+        {"push", push}, 
+        {"pint", pint}, 
+        {"pall", pall}, 
+        {"nop", nop}
+    };
+    char *_codeLine_ = NULL;
     size_t l = 0;
     ssize_t read;
     unsigned int line = 1;
+    int _;
     if (argc != 2)
     {
         fprintf(stderr, "USAGE: monty file\n");
