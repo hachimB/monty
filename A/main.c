@@ -45,7 +45,7 @@ _instr[_].f(&__Stack__, line); }
 superFree(args), args = NULL;
 line++;
 arr++; }
-superFree(_arr), free(_byteCodeContent_);
+freeStack(__Stack__), superFree(_arr), free(_byteCodeContent_);
 arr = _arr = NULL;
 _byteCodeContent_ = NULL;
 fclose(_byteCode_);
