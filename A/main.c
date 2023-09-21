@@ -12,7 +12,7 @@ char **arr;
 int main(int argc, char **argv)
 {
 	FILE *_byteCode_;
-	char *_byteCodeContent_ = NULL, **args;
+	char *_byteCodeContent_ = NULL, **args, **_arr;
 	stack_t *__Stack__;
 	instruction_t _instr[7] = {
 		{"pop", pop},
@@ -54,6 +54,7 @@ int main(int argc, char **argv)
 	fread(_byteCodeContent_, 1, 1024, _byteCode_);
 
 	arr = tokenize(_byteCodeContent_, "\n");
+	_arr = arr;
 
 	while (*arr)
 	{
@@ -62,15 +63,18 @@ int main(int argc, char **argv)
 		for (_ = 0; _ < 7; _++)
 		{
 			if (strcmp(args[0], _instr[_].opcode) == 0)
-				_instr[_].f(&__Stack__, 1);
+				_instr[_].f(&__Stack__, line);
 				
 		}
 
-		line += 0;
+		superFree(args), args = NULL;
+		line++;
 		arr++;
 	}
 
-	free(_byteCodeContent_);
+	superFree(_arr), free(_byteCodeContent_);
+	arr = _arr = NULL;
+	_byteCodeContent_ = NULL;
 
 	fclose(_byteCode_);
 
