@@ -9,13 +9,11 @@ void push(stack_t **stack, unsigned int line_number)
 {
 int data;
 stack_t *ptr;
-char **args;
 if (line_number == 0)
 {
 fprintf(stderr, "Error: Invalid line number\n");
 exit(EXIT_FAILURE);
 }
-args = tokenize(*arr, " \t");
 if (arrLen(args) != 2 || !isNum(args[1]))
 {
 fprintf(stderr, "L%u: usage: push integer\n", line_number);
