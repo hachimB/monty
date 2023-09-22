@@ -20,9 +20,9 @@
 
 typedef struct stack_s
 {
-int n;
-struct stack_s *prev;
-struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 
@@ -36,8 +36,8 @@ struct stack_s *next;
  */
 typedef struct instruction_s
 {
-char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern char **args;
@@ -59,12 +59,12 @@ void superFree(char **__);
 void freeStack(stack_t *stack);
 
 void _read_(
-    char ***as,
-    char **_codeLine_,
-    unsigned int *line, 
-    instruction_t _instr[7],
-    FILE **_byteCode_,
-    stack_t **__Stack__
-    );
+		char ***as,
+		char **_codeLine_,
+		unsigned int *line,
+		instruction_t _instr[7],
+		FILE **_byteCode_,
+		stack_t **__Stack__
+	   );
 
 #endif
