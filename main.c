@@ -35,6 +35,9 @@ int main(int argc, char **argv)
 	}
 	while ((read = _getline_(&_codeLine_, &l, _byteCode_)) != -1)
 	{
+		if (*_codeLine_== '#')
+			continue;
+
 		_read_(
 				&args,
 				&_codeLine_,
