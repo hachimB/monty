@@ -56,6 +56,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
@@ -66,7 +67,7 @@ void _read_(
 		char ***as,
 		char **_codeLine_,
 		unsigned int *line,
-		instruction_t _instr[11],
+		instruction_t _instr[12],
 		FILE **_byteCode_,
 		stack_t **__Stack__
 	   );
