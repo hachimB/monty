@@ -56,6 +56,9 @@ void pint(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 void superFree(char **__);
 void freeStack(stack_t *stack);
 
@@ -63,7 +66,7 @@ void _read_(
 		char ***as,
 		char **_codeLine_,
 		unsigned int *line,
-		instruction_t _instr[8],
+		instruction_t _instr[11],
 		FILE **_byteCode_,
 		stack_t **__Stack__
 	   );

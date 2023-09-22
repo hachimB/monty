@@ -13,8 +13,10 @@ int main(int argc, char **argv)
 	FILE *_byteCode_;
 	char *_codeLine_ = NULL;
 	stack_t *__Stack__;
-	instruction_t _instr[8] = {{"pop", pop}, {"swap", swap}, {"add", add}, {"sub", sub},
-		{"push", push}, {"pint", pint}, {"pall", pall}, {"nop", nop}};
+	instruction_t _instr[11] = {{"pop", pop}, {"swap", swap}, {"add", add}, {"sub", sub},
+		{"push", push}, {"pint", pint}, {"pall", pall}, {"nop", nop},
+		{"mod", mod}, {"div", div}, {"mul", mul}
+		};
 	size_t l = 0;
 	ssize_t read;
 	unsigned int line = 1;
