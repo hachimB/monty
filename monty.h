@@ -63,7 +63,7 @@ void _read_(
 		char ***as,
 		char **_codeLine_,
 		unsigned int *line,
-		instruction_t _instr[7],
+		instruction_t _instr[8],
 		FILE **_byteCode_,
 		stack_t **__Stack__
 	   );
