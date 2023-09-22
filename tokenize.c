@@ -10,31 +10,38 @@
 
 char **tokenize(char *_code_, char *__sep__, unsigned int line_number)
 {
-char *code = _strdup_(_code_, line_number), *token,
-**arr;
-int len = 1, _ = 0;
-token = strtok(code, __sep__);
-while (token)
+char *_str = _strdup_(_code_, line_number), *tokn, **arr;
+int n = 0, c = 0;
+if (!_str)
+return (NULL);
+tokn = NULL;
+if (strcmp(_str, "") != 0)
+tokn = strtok(_str, __sep__);
+while (tokn)
 {
-token = strtok(NULL, __sep__);
-len++;
+tokn = strtok(NULL, __sep__);
+n++;
 }
-free(code), code = _strdup_(_code_, line_number);
-token = strtok(code, __sep__);
-arr = malloc(sizeof(char *) * (len + 1));
+free(_str);
+_str = _strdup_(_code_, line_number);
+if (!_str)
+return (NULL);
+if (strcmp(_str, "") != 0)
+tokn = strtok(_str, __sep__);
+n = n ? n : 1;
+arr = malloc(sizeof(char *) * (n + 1));
 if (!arr)
+return (NULL);
+while (tokn)
 {
-fprintf(stderr, "L%u: Error: malloc failed\n", line_number);
-free(code);
-exit(EXIT_FAILURE);
+arr[c] = _strdup_(tokn, line_number);
+if (!arr[c])
+return (NULL);
+tokn = strtok(NULL, __sep__);
+c++;
 }
-while (token)
-{
-arr[_] = _strdup_(token, line_number);
-token = strtok(NULL, __sep__);
-_++;
-}
-arr[_] = NULL;
-free(code);
+arr[0] = c ? arr[0] : _strdup_("", line_number);
+arr[c ? c : 1] = (char *)NULL;
+free(_str);
 return (arr);
 }

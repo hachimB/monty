@@ -22,7 +22,7 @@ void _read_(
 
 	*as = tokenize(*_codeLine_, " \t\n", *line);
 
-	if (***as == '#')
+	if (***as == '#' || strcmp(**as, "") == 0)
 	{
 		superFree(*as), *as = NULL;
 		return;
