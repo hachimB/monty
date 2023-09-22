@@ -1,0 +1,40 @@
+#include "monty.h"
+
+/**
+ * read - read
+ * @
+ */
+
+void _read_(
+    char ***as,
+    char **_codeLine_,
+    unsigned int *line,
+    instruction_t _instr[7],
+    FILE **_byteCode_,
+    stack_t **__Stack__)
+{
+    int _;
+
+    *as = tokenize(*_codeLine_, " \t\n", *line);
+    for (_ = 0; _ < 7; _++)
+    {
+        if (strcmp((*as)[0], _instr[_].opcode) == 0)
+            break;
+    }
+    if (_ == 7)
+    {
+        fprintf(stderr, "L%u: unknown instruction %s\n", *line, (*as)[0]);
+        superFree(*as), freeStack(*__Stack__), free(*_codeLine_);
+        fclose(*_byteCode_);
+        exit(EXIT_FAILURE);
+    }
+    _instr[_].f(__Stack__, *line);
+    if (!*as)
+    {
+        freeStack(*__Stack__), free(*_codeLine_);
+        fclose(*_byteCode_);
+        exit(EXIT_FAILURE);
+    }
+    superFree(*as), *as = NULL;
+    (*line)++;
+}

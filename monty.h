@@ -43,8 +43,8 @@ void (*f)(stack_t **stack, unsigned int line_number);
 extern char **args;
 
 ssize_t _getline_(char **lineptr, size_t *n, FILE *stream);
-char *_strdup_(char *str);
-char **tokenize(char *_code_, char *__sep__);
+char *_strdup_(char *st, unsigned int line_number);
+char **tokenize(char *_code_, char *__sep__, unsigned int line_number);
 int stackLen(stack_t *s);
 int isNum(char *str);
 int arrLen(char **arr);
@@ -57,5 +57,14 @@ void push(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void superFree(char **__);
 void freeStack(stack_t *stack);
+
+void _read_(
+    char ***as,
+    char **_codeLine_,
+    unsigned int *line, 
+    instruction_t _instr[7],
+    FILE **_byteCode_,
+    stack_t **__Stack__
+    );
 
 #endif

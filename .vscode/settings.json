@@ -2,6 +2,7 @@
     "files.associations": {
         "*.ejs": "html",
         "unistd.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "monty.h": "c"
     }
 }
