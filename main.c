@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	stack_t *__Stack__;
 	instruction_t _instr[11] = {{"pop", pop}, {"swap", swap}, {"add", add}, {"sub", sub},
 		{"push", push}, {"pint", pint}, {"pall", pall}, {"nop", nop},
-		{"mod", mod}, {"div", div}, {"mul", mul}
+		{"mod", mod}, {"div", divide}, {"mul", mul}
 		};
 	size_t l = 0;
 	ssize_t read;
