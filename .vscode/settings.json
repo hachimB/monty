@@ -1,7 +1,7 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "types.h": "c",
+        "unistd.h": "c",
         "ctype.h": "c"
     }
 }
