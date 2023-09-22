@@ -8,12 +8,17 @@
 
 int isNum(char *str)
 {
-	size_t _;
+	char *s = str;
 
-	for (_ = 0; strlen(str) > _; _++)
+	if (*s == '-')
+		s++;
+
+	while (*s)
 	{
-		if (57 < *(str + _) || 48 > *(str + _))
+		if (57 < *(s) || 48 > *(s))
 			return (0);
+		
+		s++;
 	}
 
 	return (1);

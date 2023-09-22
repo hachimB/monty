@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 int data;
 stack_t *ptr;
 
-if (arrLen(args) != 2 || !isNum(args[1]))
+if (arrLen(args) < 2 || !isNum(args[1]))
 {
 fprintf(stderr, "L%u: usage: push integer\n", line_number);
 superFree(args), args = NULL;
