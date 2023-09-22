@@ -55,6 +55,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 void superFree(char **__);
 void freeStack(stack_t *stack);
 
