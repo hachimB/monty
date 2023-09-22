@@ -35,9 +35,6 @@ int main(int argc, char **argv)
 	}
 	while ((read = _getline_(&_codeLine_, &l, _byteCode_)) != -1)
 	{
-		if (*_codeLine_== '#')
-			continue;
-
 		_read_(
 				&args,
 				&_codeLine_,
@@ -45,6 +42,7 @@ int main(int argc, char **argv)
 				_instr,
 				&_byteCode_,
 				&__Stack__);
+				
 	}
 	freeStack(__Stack__), free(_codeLine_);
 	_codeLine_ = NULL;

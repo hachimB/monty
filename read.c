@@ -21,6 +21,9 @@ void _read_(
 	int _;
 
 	*as = tokenize(*_codeLine_, " \t\n", *line);
+
+	if (***as == '#')
+		return;
 	for (_ = 0; _ < 11; _++)
 	{
 		if (strcmp((*as)[0], _instr[_].opcode) == 0)
