@@ -14,7 +14,7 @@ void _read_(
 	char ***as,
 	char **_codeLine_,
 	unsigned int *line,
-	instruction_t _instr[12],
+	instruction_t _instr[13],
 	FILE **_byteCode_,
 	stack_t **__Stack__)
 {
@@ -27,12 +27,12 @@ void _read_(
 		superFree(*as), *as = NULL;
 		return;
 	}
-	for (_ = 0; _ < 12; _++)
+	for (_ = 0; _ < 13; _++)
 	{
 		if (strcmp((*as)[0], _instr[_].opcode) == 0)
 			break;
 	}
-	if (_ == 12)
+	if (_ == 13)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", *line, (*as)[0]);
 		superFree(*as), freeStack(*__Stack__), free(*_codeLine_);

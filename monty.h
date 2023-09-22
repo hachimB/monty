@@ -60,6 +60,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 void superFree(char **__);
 void freeStack(stack_t *stack);
 
@@ -67,7 +68,7 @@ void _read_(
 		char ***as,
 		char **_codeLine_,
 		unsigned int *line,
-		instruction_t _instr[12],
+		instruction_t _instr[13],
 		FILE **_byteCode_,
 		stack_t **__Stack__
 	   );
