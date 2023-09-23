@@ -10,14 +10,12 @@ char **args;
 
 int main(int argc, char **argv)
 {
-	FILE *_byteCode_;
-	char *_codeLine_ = NULL;
-	stack_t *__Stack__;
-	instruction_t _instr[13] = {{"pop", pop},
-		{"swap", swap}, {"add", add}, {"sub", sub}, {"pstr", pstr},
-		{"push", push}, {"pint", pint}, {"pall", pall}, {"nop", nop},
-		{"mod", mod}, {"div", divide}, {"mul", mul}, {"pchar", pchar}
-	};
+FILE *_byteCode_;
+char *_codeLine_ = NULL;
+stack_t *__Stack__;
+instruction_t _instr[13] = {{"pop", pop}, {"swap", swap}, {"add", add},
+{"sub", sub}, {"pstr", pstr}, {"push", push}, {"pint", pint}, {"pall", pall},
+{"nop", nop}, {"mod", mod}, {"div", divide}, {"mul", mul}, {"pchar", pchar}};
 
 	size_t l = 0;
 	ssize_t read;
