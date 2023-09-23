@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * sub - push data in the stack.
+ * mod - mod.
  * @stack : stack.
  * @line_number: line number
  * Return: nothing.
@@ -16,8 +16,8 @@ exit(EXIT_FAILURE);
 }
 if (!(*stack)->n)
 {
-    fprintf(stderr, "L%u: division by zero\n", line_number);
-    exit(EXIT_FAILURE);
+fprintf(stderr, "L%u: division by zero\n", line_number);
+exit(EXIT_FAILURE);
 }
 if (*stack)
 {

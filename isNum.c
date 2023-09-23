@@ -8,18 +8,14 @@
 
 int isNum(char *str)
 {
-	char *s = str;
-
-	if (*s == '-')
-		s++;
-
-	while (*s)
-	{
-		if (57 < *(s) || 48 > *(s))
-			return (0);
-		
-		s++;
-	}
-
-	return (1);
+char *s = str;
+if (*s == '-')
+s++;
+while (*s)
+{
+if (57 < *(s) || 48 > *(s))
+return (0);
+s++;
+}
+return (1);
 }
